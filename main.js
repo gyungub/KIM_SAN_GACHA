@@ -5,13 +5,13 @@ let autoRollInterval = null;
 
 // ========== 로컬스토리지 ==========
 function saveData() {
-  localStorage.setItem('gyun_collection', JSON.stringify(collection));
-  localStorage.setItem('gyun_inventory', JSON.stringify(inventory));
+  localStorage.setItem('KIMSAN_collection', JSON.stringify(collection));
+  localStorage.setItem('KIMSAN_inventory', JSON.stringify(inventory));
 }
 
 function loadData() {
-  const savedCollection = localStorage.getItem('gyun_collection');
-  const savedInventory = localStorage.getItem('gyun_inventory');
+  const savedCollection = localStorage.getItem('KIMSAN_collection');
+  const savedInventory = localStorage.getItem('KIMSAN_inventory');
   if (savedCollection) collection = JSON.parse(savedCollection);
   if (savedInventory) inventory = JSON.parse(savedInventory);
 }
@@ -146,7 +146,7 @@ function renderCollection() {
   // 도감 달성률 계산
   const totalCount = characters.length;
   const obtainedCount = Object.keys(collection).length;
-  const percentage = ((obtainedCount / totalCount) * 100).toFixed(1);
+  const percentage = ((Object.keys(collection).length / 100) * 100).toFixed(1);
   
   listDiv.innerHTML = `
     <p style="margin-bottom: 15px; color: #ffd700;">
